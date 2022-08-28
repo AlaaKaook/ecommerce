@@ -38,3 +38,9 @@ Route::middleware(['auth' , 'IsAdmin'])->group(function () {
     });
 
 });
+
+
+Route::get('dashboard' , function () {
+    return view('layouts_admin.admin');
+
+});
