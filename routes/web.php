@@ -33,14 +33,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware(['auth' , 'IsAdmin'])->group(function () {
 
     Route::get('dashboard' , function () {
-        // return view('admin.dashboard');
-        return "this is Admin";
+        return view('layouts_admin.admin');
+
     });
-
 });
 
-
-Route::get('dashboard' , function () {
-    return view('layouts_admin.admin');
-
-});
