@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -33,8 +34,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware(['auth' , 'IsAdmin'])->group(function () {
 
     Route::get('dashboard' , function () {
-        return view('layouts_admin.admin');
+        return view('admin.admin_dashboard.index');
 
     });
+
 });
+
+
 
