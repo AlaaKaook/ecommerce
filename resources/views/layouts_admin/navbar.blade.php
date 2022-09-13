@@ -20,7 +20,7 @@
               <button class="mdc-button mdc-menu-button">
                 <span class="d-flex align-items-center">
                   <span class="figure">
-                    <img src="assets/images/faces/face1.jpg" alt="user" class="user">
+                    <img src="{{ asset('assets/images/faces/face1.jpg') }}" alt="user" class="user">
                   </span>
                   <span class="user-name">Clyde Miles</span>
                 </span>
@@ -37,7 +37,7 @@
                   </li>
                   <li class="mdc-list-item" role="menuitem">
                     <div class="item-thumbnail item-thumbnail-icon-only">
-                      <i class="mdi mdi-settings-outline text-primary"></i>                      
+                      <i class="mdi mdi-settings-outline text-primary"></i>
                     </div>
                     <div class="item-content d-flex align-items-start flex-column justify-content-center">
                       <h6 class="item-subject font-weight-normal">Logout</h6>
@@ -63,7 +63,7 @@
                   </li>
                   <li class="mdc-list-item" role="menuitem">
                     <div class="item-thumbnail item-thumbnail-icon-only">
-                      <i class="mdi mdi-progress-download text-primary"></i>                      
+                      <i class="mdi mdi-progress-download text-primary"></i>
                     </div>
                     <div class="item-content d-flex align-items-start flex-column justify-content-center">
                       <h6 class="item-subject font-weight-normal">Update</h6>
@@ -90,7 +90,7 @@
                   </li>
                   <li class="mdc-list-item" role="menuitem">
                     <div class="item-thumbnail item-thumbnail-icon">
-                      <i class="mdi mdi-account-outline"></i>                      
+                      <i class="mdi mdi-account-outline"></i>
                     </div>
                     <div class="item-content d-flex align-items-start flex-column justify-content-center">
                       <h6 class="item-subject font-weight-normal">New user registered</h6>
@@ -105,7 +105,7 @@
                       <h6 class="item-subject font-weight-normal">System Alert</h6>
                       <small class="text-muted"> 2 days ago </small>
                     </div>
-                  </li> 
+                  </li>
                   <li class="mdc-list-item" role="menuitem">
                     <div class="item-thumbnail item-thumbnail-icon">
                       <i class="mdi mdi-update"></i>
@@ -114,7 +114,7 @@
                       <h6 class="item-subject font-weight-normal">You have a new update</h6>
                       <small class="text-muted"> 3 days ago </small>
                     </div>
-                  </li> 
+                  </li>
                 </ul>
               </div>
             </div>
@@ -130,7 +130,7 @@
                 <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
                   <li class="mdc-list-item" role="menuitem">
                     <div class="item-thumbnail">
-                      <img src="assets/images/faces/face4.jpg" alt="user">
+                      <img src="{{asset('assets/images/faces/face4.jpg')}}" alt="user">
                     </div>
                     <div class="item-content d-flex align-items-start flex-column justify-content-center">
                       <h6 class="item-subject font-weight-normal">Mark send you a message</h6>
@@ -139,7 +139,7 @@
                   </li>
                   <li class="mdc-list-item" role="menuitem">
                     <div class="item-thumbnail">
-                      <img src="assets/images/faces/face2.jpg" alt="user">
+                      <img src="{{asset('assets/images/faces/face2.jpg')}}" alt="user">
                     </div>
                     <div class="item-content d-flex align-items-start flex-column justify-content-center">
                       <h6 class="item-subject font-weight-normal">Cregh send you a message</h6>
@@ -148,13 +148,13 @@
                   </li>
                   <li class="mdc-list-item" role="menuitem">
                     <div class="item-thumbnail">
-                      <img src="assets/images/faces/face3.jpg" alt="user">
+                      <img src="{{asset('assets/images/faces/face3.jpg')}}" alt="user">
                     </div>
                     <div class="item-content d-flex align-items-start flex-column justify-content-center">
                       <h6 class="item-subject font-weight-normal">Profile picture updated</h6>
                       <small class="text-muted"> 18 Minutes ago </small>
                     </div>
-                  </li>                
+                  </li>
                 </ul>
               </div>
             </div>
@@ -174,7 +174,7 @@
                   </li>
                   <li class="mdc-list-item" role="menuitem">
                     <div class="item-thumbnail item-thumbnail-icon-only">
-                      <i class="mdi mdi-logout-variant text-primary"></i>                      
+                      <i class="mdi mdi-logout-variant text-primary"></i>
                     </div>
                     <div class="item-content d-flex align-items-start flex-column justify-content-center">
                       <h6 class="item-subject font-weight-normal">Logout</h6>

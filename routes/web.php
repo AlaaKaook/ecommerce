@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CategoryController as AdminCategoryController ;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -23,11 +23,16 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::groupe(['middleware' => ['auth' , 'IsAdmin']] , function () {
+
+// Route::Middleware(['middleware' => 'auth', 'middleware' => 'IsAdmin'])->groupe(function () {
 
 //     Route::get('dashboard' , function () {
-//         // return view('admin.dashboard');
-//         return "this is Admin";
+//         return view('admin.admin_dashboard.index');
+
+//     })->name('dashboard');
+
+//     Route::resource('categories', AdminCategoryController::class);
+
 // });
 
 
@@ -36,7 +41,9 @@ Route::middleware(['auth' , 'IsAdmin'])->group(function () {
     Route::get('dashboard' , function () {
         return view('admin.admin_dashboard.index');
 
-    });
+    })->name('dashboard');
+
+    Route::resource('categories', AdminCategoryController::class);
 
 });
 

@@ -1,5 +1,5 @@
 @extends('layouts_admin.admin')
 
 @section('content')
-<h1>AAAAAAAAAAA</h1>
+<h1>Dashboard</h1>
 @endsection
