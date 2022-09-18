@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController ;
+use App\Http\Controllers\Admin\ProducteController as AdminProducteController ;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -44,6 +45,9 @@ Route::middleware(['auth' , 'IsAdmin'])->group(function () {
     })->name('dashboard');
 
     Route::resource('categories', AdminCategoryController::class);
+
+    Route::resource('productes', AdminProducteController::class);
+
 
 });
 
