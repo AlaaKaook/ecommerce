@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController ;
 use App\Http\Controllers\Admin\ProducteController as AdminProducteController ;
+use App\Http\Controllers\FrontEnd\FrontController;
+use App\Http\Controllers\FrontEnd\ProducteController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -16,9 +18,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [FrontController::class, 'index'])->name('/');
+
+Route::get('user/productes', [ProducteController::class , 'index'])->name('producte_all');
+
+Route::get('user/productes/{producte}', [ProducteController::class , 'show'])->name('details_producte');
+
+Route::get('user/productes/{slug}/{name}', [ProducteController::class , 'product_by_category'])->name('product_by_category');
+
 
 Auth::routes();
 
