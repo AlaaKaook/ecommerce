@@ -49,15 +49,26 @@
 
                                     <div class="card-body">
 
+                                        <div class="col-md-3">
+                                            <label for="Quantity">Quantity</label>
+                                            <div class="input-group text-center mb-3" style="width: 130px">
+                                                <button class="input-group-text decrement-btn">-</button>
+                                                <input type="text" name="quantity"
+                                                    class="form-control text-center qty-input" value="1">
+                                                <button class="input-group-text increment-btn">+</button>
+                                            </div>
+                                        </div>
 
-                                        <div class="row col-md-3">
+
+
+                                        {{-- <div class="row col-md-3">
                                             <label for="Quantity">Quantity
                                                 <input type="text" name="quantity"
                                                     class="form-control input-group input-group-sm mb-3 text-center qty-input"
                                                     value="1">
                                             </label>
 
-                                        </div>
+                                        </div> --}}
 
                                         {{-- <div class="input-group text-center mb-3" style="width:130px"> --}}
                                         {{-- <span class="btn input-group-text decrement-btn">-</span> --}}
@@ -109,38 +120,44 @@
 
 @section('scripts')
     <script>
-        function incrementValue(e) {
-            e.preventDefault();
-            var fieldName = $(e.target).data('field');
-            var parent = $(e.target).closest('div');
-            var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+        $(document).ready(function () {
+            $('.increment-btn').click(function (e) {
+                e.preventDefault();
 
-            if (!isNaN(currentVal)) {
-                parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
-            } else {
-                parent.find('input[name=' + fieldName + ']').val(0);
-            }
-        }
+                var inc_value = $('.qty-input').val();
+                var value = parseInt(inc_value, 10);
+                value = isNaN(value) ? 0 : value;
 
-        function decrementValue(e) {
-            e.preventDefault();
-            var fieldName = $(e.target).data('field');
-            var parent = $(e.target).closest('div');
-            var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+                if(value < 10)
+                {
+                    value++;
+                    $('.qty-input').val(value);
 
-            if (!isNaN(currentVal) && currentVal > 0) {
-                parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
-            } else {
-                parent.find('input[name=' + fieldName + ']').val(0);
-            }
-        }
+                }
 
-        $('.input-group').on('click', '.button-plus', function(e) {
-            incrementValue(e);
+            });
+
+            $('.decrement-btn').click(function (e) {
+                e.preventDefault();
+
+                var dec_value = $('.qty-input').val();
+                var value = parseInt(dec_value, 10);
+                value = isNaN(value) ? 0 : value;
+
+                if(value > 1)
+                {
+                    value--;
+                    $('.qty-input').val(value);
+
+                }
+
+            });
         });
 
-        $('.input-group').on('click', '.button-minus', function(e) {
-            decrementValue(e);
-        });
+
+
+        // $(document).ready(function (){
+
+        // });
     </script>
 @endsection
