@@ -49,7 +49,7 @@
 
                                     <div class="card-body">
 
-                                        <div class="col-md-3">
+                                        {{-- <div class="col-md-3">
                                             <label for="Quantity">Quantity</label>
                                             <div class="input-group text-center mb-3" style="width: 130px">
                                                 <button class="input-group-text decrement-btn">-</button>
@@ -57,7 +57,7 @@
                                                     class="form-control text-center qty-input" value="1">
                                                 <button class="input-group-text increment-btn">+</button>
                                             </div>
-                                        </div>
+                                        </div> --}}
 
 
 
@@ -77,9 +77,18 @@
                                         {{-- </div> --}}
 
 
+                                        <form action="{{ route('addcart', $producte->id) }}" method="get">
 
-                                        <a href="#" class=" btn card-link">Card link</a>
-                                        <a href="#" class=" btn card-link">Another link</a>
+                                            <input type="number" name="qty" value="1" min="1" class="form-control"><br>
+                                            <div class="main-border-button">
+                                                {{-- <a href="{{ route('addcart', $producte->id) }}">Add Cart</a> --}}
+                                                <button class="btn btn-info" type="submit">Add Cart</button>
+
+                                            </div>
+
+                                        </form>
+                                        {{-- <a href="#" class=" btn card-link">Card link</a>
+                                        <a href="#" class=" btn card-link">Another link</a> --}}
 
                                     </div>
                                 </div>

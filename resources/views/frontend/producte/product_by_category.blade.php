@@ -18,9 +18,23 @@
                                                 alt="Image Product">
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ $producte->name }}</h5>
-                                                <p class="card-text">{{ $producte->description }}</p>
-                                                <a href="#" class="btn btn-info">Add To Cart</a>
-                                                <a href="{{route('details_producte' , $producte)}}" class="btn btn-success">Details</a>
+                                                <p class="card-text">{{ $producte->description }}</p><br>
+                                                {{-- <a href="{{ route('addcart', $producte->id) }}" class="btn btn-info">Add To Cart</a> --}}
+
+
+                                                <form action="{{ route('addcart', $producte->id) }}" method="get">
+
+                                                    <input type="number" name="qty" value="1" min="1"
+                                                        class="form-control"><br>
+                                                    {{-- <div class="main-border-button"> --}}
+                                                        {{-- <a href="{{ route('addcart', $producte->id) }}">Add Cart</a> --}}
+                                                        <button class="btn btn-info" type="submit">Add Cart</button>
+                                                    {{-- </div> --}}
+
+                                                    <a href="{{ route('details_producte', $producte) }}"
+                                                    class="btn btn-success">Details</a>
+                                                </form>
+
                                             </div>
                                         </div>
                                     </div>

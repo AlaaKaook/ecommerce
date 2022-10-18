@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController ;
 use App\Http\Controllers\Admin\ProducteController as AdminProducteController ;
+use App\Http\Controllers\FrontEnd\CartController;
 use App\Http\Controllers\FrontEnd\FrontController;
 use App\Http\Controllers\FrontEnd\ProducteController;
 use Illuminate\Support\Facades\Auth;
@@ -30,6 +31,11 @@ Route::get('user/productes/{producte}', [ProducteController::class , 'show'])->n
 
 Route::get('user/productes/{slug}/{name}', [ProducteController::class , 'product_by_category'])->name('product_by_category');
 
+Route::get('cart', [CartController::class , 'cart'])->name('cart');
+
+Route::get('remove_item/{id}', [CartController::class , 'remove_item'])->name('remove_item');
+
+Route::get('addcart/{id}', [CartController::class , 'addcart'])->name('addcart');
 
 Auth::routes();
 
