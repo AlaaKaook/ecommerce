@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController ;
 use App\Http\Controllers\Admin\ProducteController as AdminProducteController ;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\FrontEnd\CartController;
 use App\Http\Controllers\FrontEnd\FrontController;
+use App\Http\Controllers\FrontEnd\OrderController;
 use App\Http\Controllers\FrontEnd\ProducteController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +39,11 @@ Route::get('remove_item/{id}', [CartController::class , 'remove_item'])->name('r
 
 Route::get('addcart/{id}', [CartController::class , 'addcart'])->name('addcart');
 
+Route::get('checkout', [OrderController::class , 'checkout'])->name('checkout');
+
+Route::get('addorder', [OrderController::class , 'addorder'])->name('addorder');
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -65,7 +72,15 @@ Route::middleware(['auth' , 'IsAdmin'])->group(function () {
 
     Route::resource('productes', AdminProducteController::class);
 
+    Route::resource('orders', AdminOrderController::class)->only(['index']);
 
+    Route::get('orders/pending', [AdminOrderController::class , 'pending'])->name('orders.pending');
+
+    Route::get('orders/canceled', [AdminOrderController::class , 'canceled'])->name('orders.canceled');
+
+    Route::get('orders/completed', [AdminOrderController::class , 'completed'])->name('orders.completed');
+
+    Route::get('orders/update/status/{id}', [AdminOrderController::class , 'update'])->name('orders.update');
 });
 
 

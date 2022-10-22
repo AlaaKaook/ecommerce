@@ -39,6 +39,10 @@ $subtotal = 0;
         <td>
             <h4>$ {{ $total }}</h4>
         </td>
+        <form action="{{ route('checkout') }}" method="GET">
+            <td><button type="submit" class="btn btn-info">Check Out</button></td>
+        </form>
+
         <hr>
     </tr>
 @endif

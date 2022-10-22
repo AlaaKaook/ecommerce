@@ -13,8 +13,9 @@ class CartController extends Controller
 {
     public function cart()
     {
-        $cartitems = Cart::where('user_id', Auth::id())->get();
-        return view('frontend.Cart.cart', ['$cartitems' => $cartitems]);
+        // $cartitems = Cart::where('user_id', Auth::id())->get();
+        // return view('frontend.Cart.cart', ['$cartitems' => $cartitems]);
+        return view('frontend.Cart.cart');
     }
 
 
