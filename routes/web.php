@@ -7,6 +7,7 @@ use App\Http\Controllers\FrontEnd\CartController;
 use App\Http\Controllers\FrontEnd\FrontController;
 use App\Http\Controllers\FrontEnd\OrderController;
 use App\Http\Controllers\FrontEnd\ProducteController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,7 @@ Route::get('addcart/{id}', [CartController::class , 'addcart'])->name('addcart')
 Route::get('checkout', [OrderController::class , 'checkout'])->name('checkout');
 
 Route::get('addorder', [OrderController::class , 'addorder'])->name('addorder');
+
 
 
 Auth::routes();
