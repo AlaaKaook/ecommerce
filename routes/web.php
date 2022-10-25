@@ -3,11 +3,11 @@
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController ;
 use App\Http\Controllers\Admin\ProducteController as AdminProducteController ;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+use App\Http\Controllers\Admin\BrandController as AdminBrandController;
 use App\Http\Controllers\FrontEnd\CartController;
 use App\Http\Controllers\FrontEnd\FrontController;
 use App\Http\Controllers\FrontEnd\OrderController;
 use App\Http\Controllers\FrontEnd\ProducteController;
-use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -85,6 +85,8 @@ Route::middleware(['auth' , 'IsAdmin'])->group(function () {
     Route::get('orders/update/status/{id}', [AdminOrderController::class , 'update'])->name('orders.update');
 
     Route::get('orders/details/{order}', [AdminOrderController::class , 'order_details'])->name('order.details');
+
+    Route::resource('brands', AdminBrandController::class);
 });
 
 
