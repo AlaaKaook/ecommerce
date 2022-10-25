@@ -69,4 +69,12 @@ class OrderController extends Controller
         return view('admin.order.canceled', ['orders' => $orders]);
 
     }
+
+    public function order_details(Order $order)
+    {
+        // $order = Order::orderBy('id' , 'desc');
+        // $order->orderproducts()->orderBy('prod_qty', 'desc');
+        return view('admin.order.order_details', ['order' => $order]);
+
+    }
 }

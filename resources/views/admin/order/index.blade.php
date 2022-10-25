@@ -18,7 +18,7 @@
                 <tbody>
                     @foreach ($orders as $order)
                         <tr>
-                            <td>{{ $order->id }}</td>
+                            <td><a href="{{route('order.details' , $order)}}">{{ $order->id }}</a></td>
                             <td>{{ $order->fname }} {{ $order->lname }}</td>
                             <td>{{ $order->phone }}</td>
                             <td>{{ $order->address }}</td>

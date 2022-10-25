@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Producte extends Model
 {
     use HasFactory;
+    protected $table ="productes" ;
 
     protected $guarded =[];
 
@@ -16,8 +17,9 @@ class Producte extends Model
         return $this->belongsTo(Category::class);
     }
 
+
     public function orders()
-    {
-        return $this->belongsToMany(Order::class, 'order_product');
-    }
+{
+    return $this->belongsToMany(Order::class);
+}
 }

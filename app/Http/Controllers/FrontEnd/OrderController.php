@@ -4,7 +4,7 @@ namespace App\Http\Controllers\FrontEnd;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
-use App\Models\OrderProducts;
+use App\Models\OrderProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,14 +20,24 @@ class OrderController extends Controller
 
     public function addorder(Request $request)
     {
-
-        $validation = $request->validate([
+        $request->validate([
             'fname'     => 'required|min:2',
             'lname'     => 'required|min:2',
             'email'   => 'required|email',
             'phone'   => 'required|numeric',
             'address'    => 'required|min:4',
         ]);
+
+        $total= 0;
+
+        if (session('cart'))
+        {
+            foreach (session('cart') as $id => $details)
+            {
+                $total += $details['original_price'] * $details['quantity'];
+            }
+        }
+
 
         $user_id = Auth::user()->id;
 
@@ -38,6 +48,7 @@ class OrderController extends Controller
         $order->email = $request->input('email');
         $order->phone = $request->input('phone');
         $order->address = $request->input('address');
+        $order->total_price = $total;
         $order->user_id = $user_id;
         $order->save();
 
@@ -48,18 +59,15 @@ class OrderController extends Controller
 
             foreach($cartitem as $item => $details)
             {
-                OrderProducts::create([
+                OrderProduct::create([
                     'order_id' => $order->id,
-                    'prod_id' => $details['id'],
+                    'producte_id' => $details['id'],
                     'prod_qty' => $details['quantity'],
-                     'price' => $details['original_price'] * $details['quantity'],
+                    'price' => $details['original_price'] * $details['quantity'],
 
                 ]);
-
-
             }
         }
-
 
         return redirect()->route('/');
     }

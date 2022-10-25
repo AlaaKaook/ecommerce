@@ -17,9 +17,16 @@ class Order extends Model
     }
 
 
-    public function productes()
+    // public function productes()
+    // {
+    //     return $this->belongsToMany(Producte::class , 'order_product');
+    // }
+
+
+    public function orderproducts()
     {
-        return $this->belongsToMany(Producte::class, 'order_product');
+        return $this->hasMany(OrderProduct::class);
     }
+
 
 }

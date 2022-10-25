@@ -83,6 +83,8 @@ Route::middleware(['auth' , 'IsAdmin'])->group(function () {
     Route::get('orders/completed', [AdminOrderController::class , 'completed'])->name('orders.completed');
 
     Route::get('orders/update/status/{id}', [AdminOrderController::class , 'update'])->name('orders.update');
+
+    Route::get('orders/details/{order}', [AdminOrderController::class , 'order_details'])->name('order.details');
 });
 
 
