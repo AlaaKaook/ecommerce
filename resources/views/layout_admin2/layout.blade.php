@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="{{ asset('assets/Admin_panel2/css/style.css')}}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{ asset('assets/Admin_panel2/images/favicon.ico')}}" />
+
+    <link rel="stylesheet" href="{{ asset('assets/Admin_panel2/css/custom.css') }}">
 </head>
 
 <body>
