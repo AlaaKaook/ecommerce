@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class OrderController extends Controller
@@ -74,7 +76,11 @@ class OrderController extends Controller
     {
         // $order = Order::orderBy('id' , 'desc');
         // $order->orderproducts()->orderBy('prod_qty', 'desc');
-        return view('admin.order.order_details', ['order' => $order]);
+        // $user = User::where('id' , $order->user_id)->get();
+
+        $user = User::find($order->user_id);
+
+        return view('admin.order.order_details', ['order' => $order , 'user' => $user]);
 
     }
 }
