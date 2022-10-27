@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('image');
             $table->boolean('role_as')->default(0);//user (0) , admin (1)
             $table->rememberToken();
             $table->timestamps();
