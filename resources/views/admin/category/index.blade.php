@@ -9,7 +9,7 @@
 <div class="col-lg-12 grid-margin ">
     <div class="card">
         <div class="card-body">
-            <table class="table table-bordered">
+            <table class="table table-bordered text-center">
                 <thead>
                     <tr>
                         <th>Id</th>

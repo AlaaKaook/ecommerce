@@ -9,10 +9,7 @@
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Pending Orders</h4>
-        <p class="card-description">
-        </p>
-        <table class="table table-bordered">
+        <table class="table table-bordered text-center">
           <thead>
             <tr>
                 <th>Id</th>
