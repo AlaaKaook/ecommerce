@@ -36,6 +36,20 @@
           </li>
 
           <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-title">Product</span>
+              <i class="menu-arrow"></i>
+              <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{route('productes.index')}}">All Product</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('productes.create')}}">Add New Product</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#brand" aria-expanded="false" aria-controls="brand">
               <span class="menu-title">Brands</span>
               <i class="menu-arrow"></i>
@@ -48,6 +62,22 @@
               </ul>
             </div>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-title">User</span>
+              <i class="menu-arrow"></i>
+              <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{route('users.index')}}">All User</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('users.create')}}">Add New User</a></li>
+              </ul>
+            </div>
+          </li>
+
+
           <li class="nav-item">
             <a class="nav-link" href="pages/icons/mdi.html">
               <span class="menu-title">Icons</span>
