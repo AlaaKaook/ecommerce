@@ -16,4 +16,9 @@ class FrontController extends Controller
         return view('frontend.front' , ['categories' =>$categories , 'productes'=>$productes]);
     }
 
+    public function front2()
+    {
+        return view('frontend.front2');
+    }
+
 }
