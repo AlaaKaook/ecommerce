@@ -2,7 +2,9 @@
 
 
 @section('titel')
-    Add New Category
+<span class="page-title-icon bg-gradient-primary text-white me-2">
+    <i class="mdi mdi mdi-weight"></i>
+</span> Add New Category
 @endsection
 @section('content')
 

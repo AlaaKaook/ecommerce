@@ -1,7 +1,11 @@
 @extends('layout_admin2.layout')
 
 @section('titel')
-    Products Page
+
+<span class="page-title-icon bg-gradient-primary text-white me-2">
+    <i class="mdi mdi mdi-wallet-giftcard"></i>
+</span>  Products Page
+
 @endsection
 
 @section('content')
@@ -23,7 +27,7 @@
                     <tbody>
                         @foreach ($productes as $producte)
                             <tr>
-                                <td>{{ $producte->id }}</td>
+                                <td><a href="{{ route('productes.show' , $producte)}}">{{ $producte->id }}</a></td>
                                 <td>{{ $producte->name }}</td>
                                 <td>{{$producte->category->name}}</td>
                                 <td>{{ $producte->description }}</td>

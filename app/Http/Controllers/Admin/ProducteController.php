@@ -80,7 +80,7 @@ class ProducteController extends Controller
      */
     public function show(Producte $producte)
     {
-        //
+        return view('admin.producte.show' ,['producte' => $producte]);
     }
 
     /**

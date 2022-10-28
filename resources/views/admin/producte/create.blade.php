@@ -1,8 +1,11 @@
 @extends('layout_admin2.layout')
 
-
 @section('titel')
-    Add New Product
+
+<span class="page-title-icon bg-gradient-primary text-white me-2">
+    <i class="mdi mdi mdi-wallet-giftcard"></i>
+</span>  Add New Product
+
 @endsection
 
 @section('content')

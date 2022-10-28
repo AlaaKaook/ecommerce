@@ -76,7 +76,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('admin.user.show' , ['user' => $user]);
     }
 
     /**
@@ -133,7 +133,7 @@ class UserController extends Controller
 
         $user->update();
 
-        return redirect()->route('users.index')->with('status','Update User Successfully');
+        return redirect()->route('users.show', $user)->with('status','Update User Successfully');
     }
 
     /**

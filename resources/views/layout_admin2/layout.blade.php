@@ -27,8 +27,6 @@
 <body>
     <div class="container-scroller">
 
-
-
         @include('layout_admin2.navbar')
 
         <div class="container-fluid page-body-wrapper">
@@ -40,9 +38,10 @@
                 <div class="content-wrapper">
                     <div class="page-header">
                         <h3 class="page-title">
-                            <span class="page-title-icon bg-gradient-primary text-white me-2">
+                            {{-- <span class="page-title-icon bg-gradient-primary text-white me-2">
                                 <i class="mdi mdi-home"></i>
-                            </span>@yield('titel')
+                            </span> --}}
+                            @yield('titel')
                         </h3>
 
                     </div>
