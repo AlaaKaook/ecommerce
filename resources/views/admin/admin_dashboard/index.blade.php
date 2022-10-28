@@ -1,5 +1,10 @@
-@extends('layouts_admin.admin')
+@extends('layout_admin2.layout')
+
+@section('titel')
+    HOME
+@endsection
 
 @section('content')
-<h1>Dashboard</h1>
+
+
 @endsection
