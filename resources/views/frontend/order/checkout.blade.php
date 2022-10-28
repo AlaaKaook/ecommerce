@@ -164,8 +164,7 @@
                                                     <td>
 
                                                         <div class="col-md-8">
-                                                            <button class="btn btn-info" type="submit">Send
-                                                                Information</button>
+                                                            <button class="btn btn-info" type="submit">Place Order</button>
                                                         </div>
                                                     </td>
                                                 </tr>
