@@ -27,8 +27,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-// Route::get('/', [FrontController::class, 'index'])->name('/');
-Route::get('/', [FrontController::class, 'front2'])->name('/');
+Route::get('/', [FrontController::class, 'index'])->name('/');
+// Route::get('/', [FrontController::class, 'front2'])->name('/');
 
 Route::get('user/productes', [ProducteController::class , 'index'])->name('producte_all');
 
