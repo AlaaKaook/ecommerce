@@ -34,7 +34,12 @@ class LoginController extends Controller
         {
             return redirect('dashboard')->with('status','welcome to your dashboard');
         }
-        elseif(Auth::user()->role_as == '0')//Normal user
+        elseif(Auth::user()->role_as == '0' && session('check'))//Normal user
+        {
+            return redirect()->route('checkout')->with('status','logged in successfully');
+
+        }
+        else
         {
             return redirect('/')->with('status','logged in successfully');
         }

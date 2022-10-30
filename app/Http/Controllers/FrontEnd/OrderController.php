@@ -7,16 +7,28 @@ use App\Models\Order;
 use App\Models\OrderProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
 {
+    // public function checkout()
+    // {
+    //     $cartitem = session()->get('cart');
+
+    //     return view('frontend.order.checkout', ['cartitem' => $cartitem]);
+    // }
+
     public function checkout()
     {
+        if (!Auth::id()) {
+            Session::put('check', '1');
+            return redirect()->route('login')->with('status', 'please login first !!');
+        }
+
         $cartitem = session()->get('cart');
 
-        return view('frontend.order.checkout', ['cartitem' => $cartitem]);
+        return view('frontend.order.checkout2', ['cartitem' => $cartitem]);
     }
-
 
     public function addorder(Request $request)
     {
@@ -28,12 +40,10 @@ class OrderController extends Controller
             'address'    => 'required|min:4',
         ]);
 
-        $total= 0;
+        $total = 0;
 
-        if (session('cart'))
-        {
-            foreach (session('cart') as $id => $details)
-            {
+        if (session('cart')) {
+            foreach (session('cart') as $id => $details) {
                 $total += $details['original_price'] * $details['quantity'];
             }
         }
@@ -53,12 +63,10 @@ class OrderController extends Controller
         $order->save();
 
 
-        if(session('cart'))
-        {
+        if (session('cart')) {
             $cartitem = session()->get('cart');
 
-            foreach($cartitem as $item => $details)
-            {
+            foreach ($cartitem as $item => $details) {
                 OrderProduct::create([
                     'order_id' => $order->id,
                     'producte_id' => $details['id'],
@@ -68,7 +76,8 @@ class OrderController extends Controller
                 ]);
             }
         }
-
+        // This code is to empty the session
+        session()->forget('cart');
         return redirect()->route('/');
     }
 }

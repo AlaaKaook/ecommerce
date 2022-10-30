@@ -22,7 +22,7 @@ class CartController extends Controller
     public function addcart($id, Request $request)
     {
 
-        if (Auth::id()) {
+        // if (Auth::id()) {
 
             $product = Producte::findOrFail($id);
 
@@ -42,9 +42,13 @@ class CartController extends Controller
 
 
             return redirect()->route('producte_all')->with('status', 'product add to cart successfully !!');
-        } else {
-            return redirect()->route('login')->with('status', 'please login first !!');
-        }
+        // } else {
+
+
+        //     return redirect()->route('login')->with('status', 'please login first !!');
+        // }
+
+
         // $product = Producte::findOrFail($id);
 
         // $cart = session()->get('cart');
