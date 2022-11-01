@@ -2,7 +2,7 @@
 <div class="humberger__menu__overlay"></div>
 <div class="humberger__menu__wrapper">
     <div class="humberger__menu__logo">
-        <a href="#"><img src="{{ asset('assets/frontend2/img/logo.png')}}" alt=""></a>
+        <a href="#"><img src="{{ asset('assets/frontend2/img/logo.png') }}" alt=""></a>
     </div>
     <div class="humberger__menu__cart">
         <ul>
@@ -13,7 +13,7 @@
     </div>
     <div class="humberger__menu__widget">
         <div class="header__top__right__language">
-            <img src="{{ asset('assets/frontend2/img/language.png')}}" alt="">
+            <img src="{{ asset('assets/frontend2/img/language.png') }}" alt="">
             <div>English</div>
             <span class="arrow_carrot-down"></span>
             <ul>
@@ -27,7 +27,7 @@
     </div>
     <nav class="humberger__menu__nav mobile-menu">
         <ul>
-            <li class="active"><a href="./index.html">Home</a></li>
+            <li class="active"><a href="{{ route('/') }}">Home</a></li>
             <li><a href="./shop-grid.html">Shop</a></li>
             <li><a href="#">Pages</a>
                 <ul class="header__menu__dropdown">
@@ -79,7 +79,7 @@
                             <a href="#"><i class="fa fa-pinterest-p"></i></a>
                         </div>
                         <div class="header__top__right__language">
-                            <img src="{{ asset('assets/frontend2/img/language.png')}}" alt="">
+                            <img src="{{ asset('assets/frontend2/img/language.png') }}" alt="">
                             <div>English</div>
                             <span class="arrow_carrot-down"></span>
                             <ul>
@@ -99,7 +99,7 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="header__logo">
-                    <a href="./index.html"><img src="{{ asset('assets/frontend2/img/logo.png')}}" alt=""></a>
+                    <a href="./index.html"><img src="{{ asset('assets/frontend2/img/logo.png') }}" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -110,8 +110,8 @@
                         <li><a href="#">Pages</a>
                             <ul class="header__menu__dropdown">
                                 <li><a href="./shop-details.html">Shop Details</a></li>
-                                <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                <li><a href="./checkout.html">Check Out</a></li>
+                                <li><a href="{{ route('cart') }}">Shoping Cart</a></li>
+                                <li><a href="{{ route('checkout') }}">Check Out</a></li>
                                 <li><a href="./blog-details.html">Blog Details</a></li>
                             </ul>
                         </li>
@@ -122,11 +122,34 @@
             </div>
             <div class="col-lg-3">
                 <div class="header__cart">
-                    <ul>
-                        <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                        <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                    </ul>
-                    <div class="header__cart__price">item: <span>$150.00</span></div>
+                    @if (session('cart'))
+                        @php
+                            $total = 0;
+                        @endphp
+
+                        @foreach (session('cart') as $id => $details)
+                            @php
+                                $count = $loop->count;
+                                $total += $details['original_price'] * $details['quantity'];
+                            @endphp
+                        @endforeach
+
+                        <ul>
+                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                            <li><a href="{{ route('cart') }}"><i class="fa fa-shopping-bag"></i> <span>
+                                        {{ $count }}</span></a></li>
+                        </ul>
+
+                        <div class="header__cart__price">item: <span>${{ $total }}</span></div>
+                    @else
+                        <ul>
+                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                            <li><a href="{{ route('cart') }}"><i class="fa fa-shopping-bag"></i> <span>0</span></a>
+                            </li>
+                        </ul>
+
+                        <div class="header__cart__price">item: <span>$00.00</span></div>
+                    @endif
                 </div>
             </div>
         </div>

@@ -32,52 +32,61 @@ class OrderController extends Controller
 
     public function addorder(Request $request)
     {
-        $request->validate([
-            'fname'     => 'required|min:2',
-            'lname'     => 'required|min:2',
-            'email'   => 'required|email',
-            'phone'   => 'required|numeric',
-            'address'    => 'required|min:4',
-        ]);
+        if (session()->has('cart')) {
+            $request->validate([
+                'fname'     => 'required|min:2',
+                'lname'     => 'required|min:2',
+                'email'   => 'required|email',
+                'phone'   => 'required|numeric',
+                'address'    => 'required|min:4',
+            ]);
 
-        $total = 0;
+            $total = 0;
 
-        if (session('cart')) {
-            foreach (session('cart') as $id => $details) {
-                $total += $details['original_price'] * $details['quantity'];
+            if (session('cart')) {
+                foreach (session('cart') as $id => $details) {
+                    $total += $details['original_price'] * $details['quantity'];
+                }
             }
+
+
+            $user_id = Auth::user()->id;
+
+            $order = new Order();
+
+            $order->fname = $request->input('fname');
+            $order->lname = $request->input('lname');
+            $order->email = $request->input('email');
+            $order->phone = $request->input('phone');
+            $order->address = $request->input('address');
+            $order->total_price = $total;
+            $order->user_id = $user_id;
+            $order->save();
+
+
+            if (session('cart')) {
+                $cartitem = session()->get('cart');
+
+                foreach ($cartitem as $item => $details) {
+                    OrderProduct::create([
+                        'order_id' => $order->id,
+                        'producte_id' => $details['id'],
+                        'prod_qty' => $details['quantity'],
+                        'price' => $details['original_price'] * $details['quantity'],
+
+                    ]);
+                }
+            }
+            // This code is to empty the session
+            session()->forget('cart');
+            return redirect()->route('/');
         }
 
+        else
+        {
+            return redirect()->route('/')->with('status' , 'Sorry This Cart Empty');
 
-        $user_id = Auth::user()->id;
-
-        $order = new Order();
-
-        $order->fname = $request->input('fname');
-        $order->lname = $request->input('lname');
-        $order->email = $request->input('email');
-        $order->phone = $request->input('phone');
-        $order->address = $request->input('address');
-        $order->total_price = $total;
-        $order->user_id = $user_id;
-        $order->save();
-
-
-        if (session('cart')) {
-            $cartitem = session()->get('cart');
-
-            foreach ($cartitem as $item => $details) {
-                OrderProduct::create([
-                    'order_id' => $order->id,
-                    'producte_id' => $details['id'],
-                    'prod_qty' => $details['quantity'],
-                    'price' => $details['original_price'] * $details['quantity'],
-
-                ]);
-            }
         }
-        // This code is to empty the session
-        session()->forget('cart');
-        return redirect()->route('/');
+
     }
 }
