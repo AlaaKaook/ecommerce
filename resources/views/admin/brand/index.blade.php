@@ -1,7 +1,9 @@
 @extends('layout_admin2.layout')
 
 @section('titel')
-    Brand Page
+<span class="page-title-icon bg-gradient-primary text-white me-2">
+    <i class="mdi mdi mdi-cube"></i>
+</span>  Brand Page
 @endsection
 
 @section('content')

@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('layouts.front_end2.hero')
+@include('frontend.Front_App.slider')
 
 @include('frontend.Front_App.category_section')
 

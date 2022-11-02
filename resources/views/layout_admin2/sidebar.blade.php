@@ -84,6 +84,20 @@
 
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-title">Sliders</span>
+              <i class="menu-arrow"></i>
+              <i class="mdi mdi mdi-backburger menu-icon"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{route('sliders.index')}}">All Sliders</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('sliders.create')}}">Add New Slider</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-title">User</span>
               <i class="menu-arrow"></i>
               <i class="mdi mdi mdi-account menu-icon"></i>
