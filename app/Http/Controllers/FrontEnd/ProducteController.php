@@ -27,7 +27,7 @@ class ProducteController extends Controller
         {
             $category = Category::where('slug', $slug)->first();
             $productes = Producte::where('category_id' , $category->id)->get();
-            return view('frontend.producte.product_by_category' , ['productes'=>$productes , 'category'=>$category]);
+            return view('frontend.producte.product_by_category_2' , ['productes'=>$productes , 'category'=>$category]);
         }
         else
         {
@@ -35,6 +35,7 @@ class ProducteController extends Controller
             return view('frontend.front')->with('status', 'sorry not found this category');
         }
     }
+
 
     // public function filter_producte(Category $category)
     // {

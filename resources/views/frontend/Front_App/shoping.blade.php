@@ -9,7 +9,7 @@
                     <div class="breadcrumb__text">
                         <h2>Shop</h2>
                         <div class="breadcrumb__option">
-                            <a href="./index.html">Home </a>
+                            <a href="{{route('/')}}">Home </a>
                             <span>Shop</span>
                         </div>
                     </div>
