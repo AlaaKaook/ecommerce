@@ -27,13 +27,24 @@ class CartController extends Controller
         // if (Auth::id()) {
 
             $product = Producte::findOrFail($id);
+            //  $qty=1;
+
+               if($request->qty==0)
+                {
+                    $qty =1 ;
+                }
+                else
+                {
+                    $qty = $request->qty ;
+                }
+
 
             $cart = session()->get('cart');
 
             $cart[$id] = [
                 "id" => $product->id,
                 "name" => $product->name,
-                "quantity" => $request->qty,
+                "quantity" => $qty,
                 "original_price" => $product->original_price,
                 "selling_price" => $product->selling_price,
                 "image" => $product->image,
