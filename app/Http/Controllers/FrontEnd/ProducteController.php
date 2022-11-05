@@ -75,15 +75,15 @@ class ProducteController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Producte  $producte
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Producte $producte)
+
+    // public function show(Producte $producte)
+    // {
+    //     return view('frontend.producte.show' , ['producte' => $producte]);
+    // }
+
+    public function product_details(Producte $producte)
     {
-        return view('frontend.producte.show' , ['producte' => $producte]);
+        return view('frontend.producte.product_details' , ['producte' => $producte]);
     }
 
     /**

@@ -58,7 +58,7 @@
                                     {{-- <div class="product__details__quantity"> --}}
                                     <div class="quantity mb-4 mt-4">
                                         <div class="pro-qty">
-                                            <input type="text" name="qty" value="1">
+                                            <input type="text" name="qty" value="1" min="1">
                                         </div>
                                     </div>
                                     {{-- </div> --}}

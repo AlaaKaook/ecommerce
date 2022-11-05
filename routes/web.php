@@ -33,7 +33,9 @@ Route::get('/', [FrontController::class, 'index'])->name('/');
 
 Route::get('user/productes', [ProducteController::class , 'index'])->name('producte_all');
 
-Route::get('user/productes/{producte}', [ProducteController::class , 'show'])->name('details_producte');
+// Route::get('user/productes/{producte}', [ProducteController::class , 'show'])->name('details_producte');
+
+Route::get('user/productes/{producte}', [ProducteController::class , 'product_details'])->name('details_producte');
 
 Route::get('user/productes/{slug}/{name}', [ProducteController::class , 'product_by_category'])->name('product_by_category');
 
