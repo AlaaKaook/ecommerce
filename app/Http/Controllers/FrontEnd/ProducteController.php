@@ -17,7 +17,8 @@ class ProducteController extends Controller
     public function index()
     {
         $productes = Producte::all();
-        return view('frontend.producte.index' , ['productes'=>$productes]);
+        $categories = Category::all();
+        return view('frontend.producte.index' , ['productes'=>$productes , 'categories'=>$categories]);
     }
 
 
