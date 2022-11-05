@@ -26,6 +26,7 @@ return new class extends Migration
            $table->string('image');
            $table->tinyInteger('status');
            $table->tinyInteger('trending');
+           $table->tinyInteger('selling')->default(0);
             $table->timestamps();
         });
     }

@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ProducteController as AdminProducteController ;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\BrandController as AdminBrandController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Admin\SliderController as AdminSliderController;
 use App\Http\Controllers\FrontEnd\CartController;
 use App\Http\Controllers\FrontEnd\FrontController;
 use App\Http\Controllers\FrontEnd\OrderController;
@@ -27,8 +28,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+// Route::get('/', [FrontController::class, 'index'])->name('/');
 Route::get('/', [FrontController::class, 'index'])->name('/');
-// Route::get('/', [FrontController::class, 'front2'])->name('/');
 
 Route::get('user/productes', [ProducteController::class , 'index'])->name('producte_all');
 
@@ -46,7 +47,7 @@ Route::get('checkout', [OrderController::class , 'checkout'])->name('checkout');
 
 Route::get('addorder', [OrderController::class , 'addorder'])->name('addorder');
 
-
+Route::get('shoping', [FrontController::class, 'shoping'])->name('shoping');
 
 Auth::routes();
 
@@ -91,6 +92,8 @@ Route::middleware(['auth' , 'IsAdmin'])->group(function () {
     Route::resource('brands', AdminBrandController::class);
 
     Route::resource('users', AdminUserController::class);
+
+    Route::resource('sliders', AdminSliderController::class);
 });
 
 
