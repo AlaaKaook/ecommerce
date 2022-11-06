@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\BrandController as AdminBrandController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\SliderController as AdminSliderController;
+use App\Http\Controllers\Admin\BlogController as AdminBlogController;
 use App\Http\Controllers\FrontEnd\CartController;
 use App\Http\Controllers\FrontEnd\FrontController;
 use App\Http\Controllers\FrontEnd\OrderController;
@@ -96,6 +97,8 @@ Route::middleware(['auth' , 'IsAdmin'])->group(function () {
     Route::resource('users', AdminUserController::class);
 
     Route::resource('sliders', AdminSliderController::class);
+
+    Route::resource('blogs', AdminBlogController::class);
 });
 
 
