@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController ;
 use App\Http\Controllers\Admin\ProducteController as AdminProducteController ;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
@@ -7,7 +8,9 @@ use App\Http\Controllers\Admin\BrandController as AdminBrandController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\SliderController as AdminSliderController;
 use App\Http\Controllers\Admin\BlogController as AdminBlogController;
+use App\Http\Controllers\Admin\MessageController as AdminMessageController;
 use App\Http\Controllers\FrontEnd\CartController;
+use App\Http\Controllers\FrontEnd\ContactController;
 use App\Http\Controllers\FrontEnd\FrontController;
 use App\Http\Controllers\FrontEnd\OrderController;
 use App\Http\Controllers\FrontEnd\ProducteController;
@@ -52,6 +55,12 @@ Route::get('addorder', [OrderController::class , 'addorder'])->name('addorder');
 
 Route::get('shoping', [FrontController::class, 'shoping'])->name('shoping');
 
+Route::get('contact', [ContactController::class, 'contact'])->name('contact');
+
+Route::post('send_email', [ContactController::class, 'send_email'])->name('contact.send_email');
+
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -71,10 +80,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware(['auth' , 'IsAdmin'])->group(function () {
 
-    Route::get('dashboard' , function () {
-        return view('admin.admin_dashboard.index');
+    // Route::get('dashboard' , function () {
+    //     return view('admin.admin_dashboard.index');
 
-    })->name('dashboard');
+    // })->name('dashboard');
+
+    Route::get('dashboard', [AdminController::class , 'index'])->name('dashboard');
 
     Route::resource('categories', AdminCategoryController::class);
 
@@ -99,6 +110,23 @@ Route::middleware(['auth' , 'IsAdmin'])->group(function () {
     Route::resource('sliders', AdminSliderController::class);
 
     Route::resource('blogs', AdminBlogController::class);
+
+    //message route
+    Route::resource('messages', AdminMessageController::class)->only(['index', 'destroy']);
+
+    Route::post('messages/{message}', [AdminMessageController::class , 'store'])->name('messages.store');
+
+    Route::get('messages/{message}/replay', [AdminMessageController::class , 'replay'])->name('messages.replay');
+
+    Route::get('messages/admin', [AdminMessageController::class , 'admin_messages'])->name('admin.messages');
+
+    Route::get('messages/replay', [AdminMessageController::class , 'replay_message'])->name('replay_message');
+
+    Route::get('messages/notreplay', [AdminMessageController::class , 'not_replay_message'])->name('not_replay_message');
+
+    Route::get('messages/Details/{message}', [AdminMessageController::class , 'show'])->name('message_details');
+
+
 });
 
 

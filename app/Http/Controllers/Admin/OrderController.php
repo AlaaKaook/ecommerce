@@ -53,14 +53,14 @@ class OrderController extends Controller
     {
 
         $orders = Order::where('status','0')->get();
-        return view('admin.order.pending', ['orders' => $orders]);
+        return view('admin.order.order_by_status', ['orders' => $orders]);
 
     }
 
     public function completed()
     {
         $orders = Order::where('status','1')->get();
-        return view('admin.order.completed', ['orders' => $orders]);
+        return view('admin.order.order_by_status', ['orders' => $orders]);
 
 
     }
@@ -68,7 +68,7 @@ class OrderController extends Controller
     public function canceled()
     {
         $orders = Order::where('status','2')->get();
-        return view('admin.order.canceled', ['orders' => $orders]);
+        return view('admin.order.order_by_status', ['orders' => $orders]);
 
     }
 

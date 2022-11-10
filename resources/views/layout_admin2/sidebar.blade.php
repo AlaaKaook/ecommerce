@@ -76,7 +76,7 @@
                 <a class="nav-link" data-bs-toggle="collapse" href="#Blog" aria-expanded="false" aria-controls="Blog">
                     <span class="menu-title">Blogs</span>
                     <i class="menu-arrow"></i>
-                    <i class="mdi mdi mdi-cube menu-icon"></i>
+                    <i class="mdi mdi mdi-blogger menu-icon"></i>
                 </a>
                 <div class="collapse" id="Blog">
                     <ul class="nav flex-column sub-menu">
@@ -96,10 +96,9 @@
                 </a>
                 <div class="collapse" id="Order">
                     <ul class="nav flex-column sub-menu">
-                        {{-- <li class="nav-item"> <a class="nav-link" href="{{route('orders.index')}}"> All Orders</a></li> --}}
-                        {{-- <li class="nav-item"> <a class="nav-link" href="{{route('orders.index')}}"> All Orders </a></li> --}}
-                        <li class="nav-item"> <a class="nav-link" href="{{ route('orders.index') }}"> All Orders</a>
-                        </li>
+
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('orders.index') }}">All Orders
+                            </a></li>
                         <li class="nav-item"> <a class="nav-link" href="{{ route('orders.completed') }}"> Orders
                                 Completed </a></li>
                         <li class="nav-item"> <a class="nav-link" href="{{ route('orders.pending') }}"> Orders
@@ -127,6 +126,31 @@
                     </ul>
                 </div>
             </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#Blog" aria-expanded="false"
+                    aria-controls="Blog">
+                    <span class="menu-title">Messages</span>
+                    <i class="menu-arrow"></i>
+                    <i class="mdi mdi mdi-message-text menu-icon"></i>
+                </a>
+                <div class="collapse" id="Blog">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('messages.index') }}"> Messages
+                                Customer</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('admin.messages') }}"> Messages
+                                Admin</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('replay_message') }}"> Messages
+                                Replay </a>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('not_replay_message') }}"> Messages
+                                Not Replay </a>
+
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
 
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#User" aria-expanded="false"

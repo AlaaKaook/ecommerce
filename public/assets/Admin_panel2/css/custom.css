@@ -1,3 +1,21 @@
 .cate-image{
     width: 125px;
 }
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #B66DFF;;
+    border-color: #B66DFF;;
+}
+
+
+.page-link {
+    position: relative;
+    display: block;
+    color: #B66DFF;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+
+}

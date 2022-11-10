@@ -59,44 +59,39 @@
           </a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="mdi mdi-email-outline"></i>
-            <span class="count-symbol bg-warning"></span>
-          </a>
+
+            <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="mdi mdi-email-outline"></i>
+                @if ($msgs != null)
+                <span class="count-symbol bg-warning"></span>
+                @endif
+              </a>
+
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
             <h6 class="p-3 mb-0">Messages</h6>
+            @php
+                $total_message = 0 ;
+            @endphp
+            @foreach ($msgs as $msg)
+            @if ($loop->index < 5)
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item preview-item">
-              <div class="preview-thumbnail">
-                <img src="{{ asset('assets/Admin_panel2/images/faces/face4.jpg')}}" alt="image" class="profile-pic">
-              </div>
-              <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Mark send you a message</h6>
-                <p class="text-gray mb-0"> 1 Minutes ago </p>
-              </div>
-            </a>
+            <a class="dropdown-item preview-item" href="{{route('message_details' , $msg)}}">
+                <div class="preview-thumbnail">
+                  <img src="{{ asset('assets/Admin_panel2/images/faces/profile_msg.png')}}" alt="image" class="profile-pic">
+                </div>
+                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                  <h6 class="preview-subject ellipsis mb-1 font-weight-normal">{{$msg->name}} send you a msg</h6>
+                  <p class="text-gray mb-0"> {{$msg->created_at->diffForHumans() }}</p>
+                </div>
+              </a>
+            @endif
+
+              @php
+                  $total_message += 1;
+              @endphp
+            @endforeach
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item preview-item">
-              <div class="preview-thumbnail">
-                <img src="{{ asset('assets/Admin_panel2/images/faces/face2.jpg')}}" alt="image" class="profile-pic">
-              </div>
-              <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Cregh send you a message</h6>
-                <p class="text-gray mb-0"> 15 Minutes ago </p>
-              </div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item preview-item">
-              <div class="preview-thumbnail">
-                <img src="{{ asset('assets/Admin_panel2/images/faces/face3.jpg')}}" alt="image" class="profile-pic">
-              </div>
-              <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Profile picture updated</h6>
-                <p class="text-gray mb-0"> 18 Minutes ago </p>
-              </div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <h6 class="p-3 mb-0 text-center">4 new messages</h6>
+            <h6 class="p-3 mb-0 text-center">{{$total_message}} new messages</h6>
           </div>
         </li>
         <li class="nav-item dropdown">

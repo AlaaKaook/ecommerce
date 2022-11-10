@@ -1,7 +1,9 @@
 @extends('layout_admin2.layout')
 
 @section('titel')
-    Order Details
+<span class="page-title-icon bg-gradient-primary text-white me-2">
+    <i class="mdi mdi mdi-cart"></i>
+</span>  Order Details
 @endsection
 
 @section('content')
