@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Admin</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="{{ asset('assets/Admin_panel2/vendors/mdi/css/materialdesignicons.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/Admin_panel2/vendors/mdi/css/materialdesignicons.min.css') }}">
     {{-- <link rel="stylesheet" href="{{ asset('assets/Admin_panel2/vendors/css/vendor.bundle.base.css')}}"> --}}
-    <link rel="stylesheet" href="{{ asset('assets/Admin_panel2/vendors/css/vendor.bundle.base.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/Admin_panel2/vendors/css/vendor.bundle.base.css') }}">
 
     <!-- endinject -->
     <!-- Plugin css for this page -->
@@ -17,11 +17,13 @@
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="{{ asset('assets/Admin_panel2/css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/Admin_panel2/css/style.css') }}">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="{{ asset('assets/Admin_panel2/images/favicon.ico')}}" />
+    <link rel="shortcut icon" href="{{ asset('assets/Admin_panel2/images/favicon.ico') }}" />
 
     <link rel="stylesheet" href="{{ asset('assets/Admin_panel2/css/custom.css') }}">
+
+    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
 </head>
 
 <body>
@@ -58,21 +60,35 @@
 
 
     <!-- plugins:js -->
-    <script src="{{asset('assets/Admin_panel2/vendors/js/vendor.bundle.base.js')}}"></script>
+    <script src="{{ asset('assets/Admin_panel2/vendors/js/vendor.bundle.base.js') }}"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
-    <script src="{{asset('assets/Admin_panel2/vendors/chart.js/Chart.min.js')}}"></script>
-    <script src="{{asset('assets/Admin_panel2/js/jquery.cookie.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/Admin_panel2/vendors/chart.js/Chart.min.js') }}"></script>
+    <script src="{{ asset('assets/Admin_panel2/js/jquery.cookie.js') }}" type="text/javascript"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="{{asset('assets/Admin_panel2/js/off-canvas.js')}}"></script>
-    <script src="{{asset('assets/Admin_panel2/js/hoverable-collapse.js')}}"></script>
-    <script src="{{asset('assets/Admin_panel2/js/misc.js')}}"></script>
+    <script src="{{ asset('assets/Admin_panel2/js/off-canvas.js') }}"></script>
+    <script src="{{ asset('assets/Admin_panel2/js/hoverable-collapse.js') }}"></script>
+    <script src="{{ asset('assets/Admin_panel2/js/misc.js') }}"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
-    <script src="{{asset('assets/Admin_panel2/js/dashboard.js')}}"></script>
-    <script src="{{asset('assets/Admin_panel2/js/todolist.js')}}"></script>
+    <script src="{{ asset('assets/Admin_panel2/js/dashboard.js') }}"></script>
+    <script src="{{ asset('assets/Admin_panel2/js/todolist.js') }}"></script>
     <!-- End custom js for this page -->
+
+    <!-- Sweet Alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (session('status'))
+        <script>
+            Swal.fire(
+                'Good job!',
+                '{{ session('status') }}',
+                'success',
+            );
+
+        </script>
+    @endif
+
 </body>
 
 </html>
