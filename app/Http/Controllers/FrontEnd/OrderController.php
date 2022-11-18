@@ -22,12 +22,22 @@ class OrderController extends Controller
     {
         if (!Auth::id()) {
             Session::put('check', '1');
-            return redirect()->route('login')->with('status', 'please login first !!');
+            return redirect()->route('login')->with('error', 'Please Login First !!');
         }
 
-        $cartitem = session()->get('cart');
+        if (session()->has('cart'))
+        {
+             $cartitem = session()->get('cart');
 
-        return view('frontend.order.checkout2', ['cartitem' => $cartitem]);
+             return view('frontend.order.checkout2', ['cartitem' => $cartitem]);
+        }
+        else
+        {
+            return redirect()->route('/')->with('error' , 'Sorry The Cart is Empty');
+        }
+
+
+
     }
 
     public function addorder(Request $request)
@@ -79,12 +89,12 @@ class OrderController extends Controller
             }
             // This code is to empty the session
             session()->forget('cart');
-            return redirect()->route('/');
+            return redirect()->route('/')->with('status' , 'Send Order successfully');
         }
 
         else
         {
-            return redirect()->route('/')->with('status' , 'Sorry This Cart Empty');
+            return redirect()->route('/')->with('error' , 'Sorry This Cart Empty');
 
         }
 

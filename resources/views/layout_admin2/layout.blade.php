@@ -81,7 +81,7 @@
     @if (session('status'))
         <script>
             Swal.fire(
-                'Good job!',
+                'successfully',
                 '{{ session('status') }}',
                 'success',
             );
