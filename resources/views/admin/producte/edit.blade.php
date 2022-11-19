@@ -83,6 +83,13 @@
                 </div>
 
 
+                <div class="form-check form-check-flat form-check-primary">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="selling" {{$producte->selling == '1' ? 'checked':''}}> Selling </label>
+                </div>
+
+
+
                 <div class="col-md-12">
                     <label for="">Image :</label>
                     @if ($producte->image)

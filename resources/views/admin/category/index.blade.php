@@ -49,6 +49,7 @@
     </div>
 </div>
 
+{{ $categories->links('pagination::bootstrap-4') }}
 @endsection
 
 

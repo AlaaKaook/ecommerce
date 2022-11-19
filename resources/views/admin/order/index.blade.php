@@ -55,7 +55,7 @@
       </div>
     </div>
   </div>
-
+  {{ $orders->links('pagination::bootstrap-4') }}
   @endsection
 
     {{-- <div class="mdc-card p-0">

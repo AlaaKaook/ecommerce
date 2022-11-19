@@ -59,5 +59,5 @@
         </div>
     </div>
 
-    {{-- {{ $messages->links('pagination::bootstrap-4') }} --}}
+    {{ $messages->links('pagination::bootstrap-4') }}
 @endsection

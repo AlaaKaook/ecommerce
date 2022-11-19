@@ -25,19 +25,16 @@ class ContactController extends Controller
             'content' => 'required',
         ]);
 
-// dd('sdxc');
           $mailData['sender'] = "customer";
 
           $mailData['status'] = 1 ;
 
          Message::create($mailData);
 
-
-        // dd($mailData);
         Mail::to($request->email)->send(new ContactMail($mailData));
         User::where('email', 'admin@gmail.com')->first()->notify(new MessageReceived);
 
-        return redirect()->route('/');
+        return redirect()->route('/')->with('send_mail' , 'Send Mail Successfully');;
     }
 
 }

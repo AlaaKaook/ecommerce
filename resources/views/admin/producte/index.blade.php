@@ -1,15 +1,12 @@
 @extends('layout_admin2.layout')
 
 @section('titel')
-
-<span class="page-title-icon bg-gradient-primary text-white me-2">
-    <i class="mdi mdi mdi-wallet-giftcard"></i>
-</span>  Products Page
-
+    <span class="page-title-icon bg-gradient-primary text-white me-2">
+        <i class="mdi mdi mdi-wallet-giftcard"></i>
+    </span> Products Page
 @endsection
 
 @section('content')
-
     <div class="col-lg-12 grid-margin ">
         <div class="card">
             <div class="card-body">
@@ -27,9 +24,9 @@
                     <tbody>
                         @foreach ($productes as $producte)
                             <tr>
-                                <td><a href="{{ route('productes.show' , $producte)}}">{{ $producte->id }}</a></td>
+                                <td><a href="{{ route('productes.show', $producte) }}">{{ $producte->id }}</a></td>
                                 <td>{{ $producte->name }}</td>
-                                <td>{{$producte->category->name}}</td>
+                                <td>{{ $producte->category->name }}</td>
                                 <td>{{ $producte->description }}</td>
                                 <td><img src="{{ asset('producte_img/' . $producte->image) }}" alt="Image product"
                                         class="cate-image"></td>
@@ -53,8 +50,10 @@
         </div>
     </div>
 
+    {{ $productes->links('pagination::bootstrap-4') }}
+@endsection
 
-    {{-- <div class="card-header">
+{{-- <div class="card-header">
         <h4>product Page</h4>
     </div>
 
@@ -96,4 +95,3 @@
             </table>
         </div>
     </div> --}}
-@endsection

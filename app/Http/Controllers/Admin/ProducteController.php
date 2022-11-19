@@ -17,7 +17,7 @@ class ProducteController extends Controller
      */
     public function index()
     {
-        $productes = Producte::all();
+        $productes = Producte::paginate(7);
         return view('admin.producte.index' , ['productes'=>$productes]);
     }
 
@@ -65,6 +65,7 @@ class ProducteController extends Controller
         $producte->qantity = $request->input('qantity');
         $producte->status = $request->input('status') == True ? '1':'0';
         $producte->trending = $request->input('trending')== True ? '1':'0';
+        $producte->selling = $request->input('selling')== True ? '1':'0';
         // $producte->meta_title = $request->input('meta_title');
         // $producte->meta_keywords = $request->input('meta_keywords');
         // $producte->meta_description = $request->input('meta_description');
@@ -130,6 +131,7 @@ class ProducteController extends Controller
         $producte->qantity = $request->input('qantity');
         $producte->status = $request->input('status') == True ? '1':'0';
         $producte->trending = $request->input('trending')== True ? '1':'0';
+        $producte->selling = $request->input('selling')== True ? '1':'0';
 
         $producte->update();
 

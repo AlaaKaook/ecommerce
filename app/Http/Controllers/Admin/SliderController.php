@@ -16,7 +16,7 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::all();
+        $sliders = Slider::paginate(7);
         return view('admin.slider.index' ,['sliders'=>$sliders]);
     }
 

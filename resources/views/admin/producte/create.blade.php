@@ -82,6 +82,11 @@
                         <input type="checkbox" class="form-check-input" name="trending"> Trending </label>
                 </div>
 
+                <div class="form-check form-check-flat form-check-primary">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="selling"> Selling </label>
+                </div>
+
 
                 <div class="col-md-12 mt-2">
                     <label class="mb-2">Choose Image :</label>

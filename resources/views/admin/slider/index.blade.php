@@ -52,4 +52,5 @@
             </div>
         </div>
     </div>
+    {{ $sliders->links('pagination::bootstrap-4') }}
 @endsection

@@ -14,7 +14,7 @@ class MessageController extends Controller
     public function index()
     {
         // Customer Messages
-        $messages = Message::where('sender' , 'customer')->paginate(8);
+        $messages = Message::where('sender' , 'customer')->paginate(7);
 
         // $messages = Message::paginate(8);
 
