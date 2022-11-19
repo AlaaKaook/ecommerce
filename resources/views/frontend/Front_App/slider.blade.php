@@ -1,4 +1,4 @@
-<div id="myCarousel" class="carousel slide mb-4 mt-4" data-ride="carousel" data-interval="3000">
+<div id="myCarousel" class="carousel slide mb-4 mt-4" data-ride="carousel" data-interval="2500">
     <ol class="carousel-indicators">
         @foreach ($sliders as $slider)
             <li data-target="#myCarousel" data-slide-to="{{ $loop->index }}"
@@ -9,7 +9,7 @@
         @foreach ($sliders as $slider)
             <div class="carousel-item @if ($loop->first) active @endif">
                 <img class="d-block w-100" src="{{ asset('slider_img/' . $slider->image) }}" alt="Image slide"
-                    width="1498px" height="430px">
+                    width="1498px" height="350px">
             </div>
         @endforeach
     </div>
@@ -22,5 +22,5 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-<hr>
+
 <div class="mb-5"></div>

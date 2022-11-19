@@ -19,7 +19,7 @@
 
                         @if ($producte->category->name == $category->name)
 
-                            <div class="col-lg-4 col-md-4 col-sm-6 ">
+                            <div class="col-lg-3 col-md-3 col-sm-6 ">
                                 <div class="blog__item border text-center">
                                     <div class="blog__item__pic">
                                         <img src="{{ asset('producte_img/' . $producte->image) }}" alt="Image Product"
@@ -31,7 +31,7 @@
                                         <p>{{ $producte->description }}</p>
 
                                         <hr>
-                                        <h4>price : ${{ $producte->original_price }}</h4>
+                                        <h2>$ {{ $producte->original_price }}</h2>
                                         <hr>
 
                                         <form action="{{ route('addcart', $producte->id) }}" method="get">

@@ -13,7 +13,7 @@
                                 <div class="latest-product__item__pic">
                                     <img src="{{ asset('producte_img/' . $producte->image) }}" alt="">
                                 </div>
-                                <div class="latest-product__item__text">
+                              <div class="latest-product__item__text">
                                     <h6> {{ $producte->name }} </h6>
                                     <span>${{ $producte->original_price }}</span>
                                 </div>

@@ -57,15 +57,15 @@
                         </form>
                         <ul>
                             <li><b>Availability</b>
-                                @if ($producte->status == 1)
+                                {{-- @if ($producte->status == 1) --}}
 
                                 <span>Available</span>
 
-                                @else
+                                {{-- @else --}}
 
-                                <span>UnAvailable</span>
+                                {{-- <span>UnAvailable</span> --}}
 
-                                @endif
+                                {{-- @endif --}}
 
                             </li>
                             <li><b>Shipping</b> <span>01 day shipping.</span></li>

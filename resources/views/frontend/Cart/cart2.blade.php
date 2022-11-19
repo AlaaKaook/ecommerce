@@ -58,7 +58,7 @@
                                     @else
                                     <tr>
                                         <td colspan="4">
-                                           <h2>The Cart Is Empty</h2>
+                                           <h2 class="color-text">The Cart Is Empty</h2>
                                         </td>
                                     </tr>
                                 @endif

@@ -25,7 +25,7 @@
             @foreach ($categories as $category)
                 @foreach ($category->productes as $producte)
 
-                {{-- @if ($index < 8) --}}
+                @if ($loop->index < 4)
                 <div class="col-lg-3 col-md-4 col-sm-6 mix  {{ $category->slug }}  ">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg"
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-                {{-- @endif --}}
+                @endif
 
                     {{-- @php
                         $index += 1;
