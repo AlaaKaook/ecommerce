@@ -33,6 +33,13 @@ header {
     font-family: 'Montserrat', sans-serif;
 }
 
+.header_reset {
+    font-size: 35px;
+    margin-bottom: 60px;
+    color: #9370d8;
+    font-family: 'Montserrat', sans-serif;
+}
+
 .input-field,
 form .button {
     margin: 25px 0;

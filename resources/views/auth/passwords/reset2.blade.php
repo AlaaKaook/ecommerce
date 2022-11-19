@@ -3,16 +3,18 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Login</title>
+    <title>Reset Password</title>
     <link rel="stylesheet" href="{{ asset('assets/login/css/style.css') }}">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <header>Login</header>
-        <form method="POST" action="{{ route('login') }}">
+        <header class="header_reset">Reset Password</header>
+        <form method="POST" action="{{ route('password.update') }}">
             @csrf
+
+            <input type="hidden" name="token" value="{{ $token }}">
 
             <div class="input-field">
                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
@@ -23,8 +25,9 @@
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-                <label>Email</label>
+                <label>Email Address</label>
             </div>
+
             <div class="input-field">
                 <input id="password" type="password" class="pswrd @error('password') is-invalid @enderror"
                     name="password" required autocomplete="current-password">
@@ -38,42 +41,22 @@
                 <label>Password</label>
             </div>
 
-            <div class="chkbox">
-                <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                    {{ old('remember') ? 'checked' : '' }}>
+            <div class="input-field">
 
-                <label class="form-check-label" for="remember">
-                    {{ __('Remember Me') }}
-                </label>
-            </div>
+                <input id="password-confirm" type="password" class="pswrd" name="password_confirmation" required
+                    autocomplete="new-password">
 
-            <div>
-                @if (Route::has('password.request'))
-                    <a  class="ForgetPassword" href="{{ route('password.request') }}">
-                        {{ __('Forgot Your Password?') }}
-                    </a>
-                @endif
+                {{-- <span class="show">SHOW</span> --}}
+                <label>Confirm Password</label>
             </div>
 
 
             <div class="button">
                 <div class="inner"></div>
-                <button>LOGIN</button>
+                <button>Reset Password</button>
             </div>
 
         </form>
-        {{-- <div class="auth">Or login with</div>
-        <div class="links">
-            <div class="facebook">
-                <i class="fab fa-facebook-square"><span>Facebook</span></i>
-            </div>
-            <div class="google">
-                <i class="fab fa-google-plus-square"><span>Google</span></i>
-            </div>
-        </div> --}}
-        <div class="signup">
-            Not a member? <a href="{{route('register')}}">Signup now</a>
-        </div>
     </div>
     <script>
         var input = document.querySelector('.pswrd');

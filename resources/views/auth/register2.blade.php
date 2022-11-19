@@ -89,13 +89,15 @@
             <div class="input-field">
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
 
-                <span class="show">SHOW</span>
+                {{-- <span class="show">SHOW</span> --}}
                 <label>Password Confirm</label>
             </div>
-            <div class="col-md-12 mt-2">
+            {{-- <div class="col-md-12 mt-2">
                 <label class="mb-2">Choose Image :</label>
                 <input type="file" class="form-control" name="image"></br>
-            </div>
+            </div> --}}
+
+            <input type="file" class="form-control" name="image" hidden>
 
             <div class="button">
                 <div class="inner"></div>
