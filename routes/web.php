@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController ;
 use App\Http\Controllers\Admin\ProducteController as AdminProducteController ;
@@ -39,6 +40,8 @@ Route::get('user/productes', [ProducteController::class , 'index'])->name('produ
 
 // Route::get('user/productes/{producte}', [ProducteController::class , 'show'])->name('details_producte');
 
+Route::get('user/result_search', [FrontController::class , 'result_search'])->name('result_search');
+
 Route::get('user/productes/{producte}', [ProducteController::class , 'product_details'])->name('details_producte');
 
 Route::get('user/productes/{slug}/{name}', [ProducteController::class , 'product_by_category'])->name('product_by_category');
@@ -58,6 +61,10 @@ Route::get('shoping', [FrontController::class, 'shoping'])->name('shoping');
 Route::get('contact', [ContactController::class, 'contact'])->name('contact');
 
 Route::post('send_email', [ContactController::class, 'send_email'])->name('contact.send_email');
+
+Route::get('about', [AboutController::class , 'index'])->name('about');
+
+Route::get('subscriber', [FrontController::class , 'subscriber'])->name('subscriber');
 
 
 
