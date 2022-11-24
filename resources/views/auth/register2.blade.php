@@ -10,7 +10,7 @@
 
 <body>
     <div class="container">
-        <header>REGISTER</header>
+        <header>Register</header>
         <form method="POST" action="{{ route('register') }}">
             @csrf
 

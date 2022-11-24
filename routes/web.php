@@ -48,6 +48,8 @@ Route::get('user/productes/{slug}/{name}', [ProducteController::class , 'product
 
 Route::get('cart', [CartController::class , 'cart'])->name('cart');
 
+Route::get('updatecart/{id}', [CartController::class , 'updatecart'])->name('updatecart');
+
 Route::get('remove_item/{id}', [CartController::class , 'remove_item'])->name('remove_item');
 
 Route::get('addcart/{id}', [CartController::class , 'addcart'])->name('addcart');

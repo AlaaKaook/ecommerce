@@ -2,3 +2,7 @@
     color: #9370d8;
 }
 
+
+.ml-3, .mx-3 {
+    margin-left: 7.2rem !important;
+}

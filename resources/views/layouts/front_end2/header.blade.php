@@ -92,7 +92,7 @@
                                 <li><a href="{{ route('producte_all') }}">ALL Product</a></li>
                                 <li><a href="{{ route('cart') }}">Shoping Cart</a></li>
                                 <li><a href="{{ route('checkout') }}">Check Out</a></li>
-                                <li><a href="./blog-details.html">Blog</a></li>
+                                {{-- <li><a href="#">Blog</a></li> --}}
                             </ul>
                         </li>
                         <li><a href="{{ route('contact') }}">Contact</a></li>

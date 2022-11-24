@@ -13,21 +13,13 @@ class CartController extends Controller
 {
     public function cart()
     {
-        // $cartitems = Cart::where('user_id', Auth::id())->get();
-        // return view('frontend.Cart.cart', ['$cartitems' => $cartitems]);
         return view('frontend.Cart.cart2');
     }
 
 
-
-
     public function addcart($id, Request $request)
     {
-
-        // if (Auth::id()) {
-
             $product = Producte::findOrFail($id);
-            //  $qty=1;
 
                if($request->qty==0)
                 {
@@ -55,38 +47,43 @@ class CartController extends Controller
 
 
             return redirect()->route('producte_all')->with('status', 'product add to cart successfully !!');
-        // } else {
-
-
-        //     return redirect()->route('login')->with('status', 'please login first !!');
-        // }
-
-
-        // $product = Producte::findOrFail($id);
-
-        // $cart = session()->get('cart');
-
-        // $cart[$id]=[
-
-        //     "name" => $product->name ,
-        //     "quantity" => $request->qty ,
-        //     "original_price" => $product->original_price ,
-        //     "selling_price" => $product->selling_price ,
-        //     "image" => $product->image ,
-
-        // ];
-
-        // session()->put('cart' , $cart);
-
-
-        //This code is to empty the session
-        // session()->forget('cart');
-        // return redirect()->route('producte_all')->with('status', 'product add to cart successfully !!');
-
-
-
     }
 
+
+
+
+    public function updatecart($id, Request $request)
+    {
+            $product = Producte::findOrFail($id);
+
+               if($request->qty==0)
+                {
+                    $qty =1 ;
+                }
+                else
+                {
+                    $qty = $request->qty ;
+                }
+
+
+            $cart = session()->get('cart');
+
+            $cart[$id] = [
+                "id" => $product->id,
+                "name" => $product->name,
+                "quantity" => $qty,
+                "original_price" => $product->original_price,
+                "selling_price" => $product->selling_price,
+                "image" => $product->image,
+
+            ];
+
+            session()->put('cart', $cart);
+
+
+            return redirect()->route('cart')->with('status', 'Update Cart Successfully !!');
+
+    }
 
 
     /**

@@ -8,9 +8,9 @@
                           <a href="./index.html"><img src="img/logo.png" alt=""></a>
                       </div>
                       <ul>
-                          <li>Address: 60-49 Road 11378 New York</li>
-                          <li>Phone: +963 999999999</li>
-                          <li>Email: alaaqaouq1998@gmail.com</li>
+                          <li>Address : Damascus</li>
+                          <li>Phone : +963 999999999</li>
+                          <li>Email : alaaqaouq1998@gmail.com</li>
                       </ul>
                   </div>
               </div>
